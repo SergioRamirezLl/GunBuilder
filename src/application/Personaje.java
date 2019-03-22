@@ -2,18 +2,15 @@ package application;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.Group;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -99,17 +96,21 @@ public class Personaje {
 			timeline.play();
 		}
 	}
-	public void movDer() {
-		per.setLayoutX(per.getLayoutX() + velPer);
-		per.setImage(imageDer);
-		xFin=this.getPosX();
-		yFin=this.getPosY();
+	public void movDer(double lim) {
+		if((per.getLayoutX()+velPer)<=lim-width) {
+			per.setLayoutX(per.getLayoutX() + velPer);
+			per.setImage(imageDer);
+			xFin=this.getPosX();
+			yFin=this.getPosY();
+		}
 	}
-	public void movIzq() {
-		per.setLayoutX(per.getLayoutX() - velPer);
-		per.setImage(imageIzq);
-		xFin=this.getPosX();
-		yFin=this.getPosY();
+	public void movIzq(double lim) {
+		if((per.getLayoutX()-velPer)>=lim) {
+			per.setLayoutX(per.getLayoutX() - velPer);
+			per.setImage(imageIzq);
+			xFin=this.getPosX();
+			yFin=this.getPosY();
+		}
 	}
 	public double getPosX() {
 		return per.getLayoutX();
@@ -125,7 +126,7 @@ public class Personaje {
 		timeline.setOnFinished(evt2 ->{
 			root.getChildren().remove(per);
 			root.getChildren().add(perdiste);
-			perdiste.relocate(200, 200);
+			perdiste.relocate(390, 70);
 		});
 		timeline.play();
 	}

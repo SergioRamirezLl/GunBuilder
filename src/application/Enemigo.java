@@ -1,20 +1,15 @@
 package application;
 
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 
 public class Enemigo {
 	private Image imageIzq = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/enemyIzq.png");
 	private Image imageDer = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/enemyDer.png");
 	private ImageView per = new ImageView(imageDer);
 	private double xIni, yIni;
-	private double powJump;
-	private int timeJump;
 	private int vidas;
 	private double velPer;
 	private double width;

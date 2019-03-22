@@ -13,13 +13,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 
 public class Main extends Application {
 	private BorderPane root = new BorderPane();
 	private Scene scene = new Scene(root,800,600);
-	private double posX=100, posY=300;
+	private double posX=100, posY=340;
 	private boolean nerf=true;
+	private Image img = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/fondo.png");
+	private ImageView fondo = new ImageView(img);
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -27,6 +28,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Tank Cool Game");
 			primaryStage.setScene(scene);
+			root.getChildren().add(fondo);
 			primaryStage.show();
 			
 			Bounds limite = root.getBoundsInLocal();
@@ -51,7 +53,7 @@ public class Main extends Application {
 			
 			Enemigo enemy2 = new Enemigo(this.posX+350, this.posY);
 			enemy2.setImage(root);
-			enemy2.setVelPer(1.5);
+			enemy2.setVelPer(1);
 			enemy2.setVidas(3);
 			
 			ArrayList<String> input = new ArrayList<String>();
@@ -73,11 +75,11 @@ public class Main extends Application {
 		                if(input.contains("C"))
 		                	fire.dispara(root,gunMan);
 		                if(input.contains("J")) {
-		                	gunMan.movIzq();
+		                	gunMan.movIzq(limite.getMinX());
 							fire.setLimite(limite.getMinX());
 		                }
 		                if(input.contains("L")) {
-		                	gunMan.movDer();
+		                	gunMan.movDer(limite.getMaxX());
 							fire.setLimite(limite.getMaxX());
 		                }
 		                if(enemy.intersects(fire)) {
@@ -93,7 +95,20 @@ public class Main extends Application {
 		                	if(nerf==true) {
 		                		fire.setNumBal(fire.getNumBal()-3);
 		                		nerf=false;
-		                		KeyFrame frame = new KeyFrame(Duration.seconds(5));
+		                		KeyFrame frame = new KeyFrame(Duration.seconds(3));
+			            		Timeline waitTime = new Timeline(frame);
+			            		waitTime.setOnFinished(evt->nerf=true);
+			            		waitTime.play();
+		                	}
+		                }
+		                if(enemy2.getDistancia(gunMan)<=200) {
+		                	enemy2.corre(gunMan);
+		                }
+		                if(gunMan.intersects(enemy2)) {
+		                	if(nerf==true) {
+		                		fire.setNumBal(fire.getNumBal()-3);
+		                		nerf=false;
+		                		KeyFrame frame = new KeyFrame(Duration.seconds(3));
 			            		Timeline waitTime = new Timeline(frame);
 			            		waitTime.setOnFinished(evt->nerf=true);
 			            		waitTime.play();
