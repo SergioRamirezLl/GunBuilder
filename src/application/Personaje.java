@@ -16,8 +16,8 @@ import javafx.util.Duration;
 
 public class Personaje {
 
-	Image imageIzq = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/GunMan.png");
-	Image imageDer = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/GunManDer.png");
+	Image imageIzq = new Image("application/Img/GunMan.png");
+	Image imageDer = new Image("application/Img/GunManDer.png");
 	ImageView per = new ImageView(imageDer);
 	private double xIni, yIni,xFin,yFin;
 	private Button rightMove = new Button("[L]");
@@ -38,7 +38,7 @@ public class Personaje {
 	public HBox setHBox() {
 		HBox bot = new HBox();
 		bot.setSpacing(20);
-		Image izquierda = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/izquierda.jpg");
+		Image izquierda = new Image("application/Img/izquierda.jpg");
 		ImageView izq = new ImageView(izquierda);
 		ImageView der = new ImageView(izquierda);
 		izq.setFitWidth(20);

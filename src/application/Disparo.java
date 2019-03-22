@@ -16,7 +16,7 @@ import javafx.geometry.Rectangle2D;
 public class Disparo {
 	private TextField txt= new TextField("Balas restantes: "+15);
 	private Button btn = new Button("Fire: [C]");
-	private Image img = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/bullet.png");
+	private Image img = new Image("application/Img/bullet.png");
 	private ImageView bullet = new ImageView(img);
 	private int numBal;
 	private double limite;

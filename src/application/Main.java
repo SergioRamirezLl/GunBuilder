@@ -19,7 +19,7 @@ public class Main extends Application {
 	private Scene scene = new Scene(root,800,600);
 	private double posX=100, posY=340;
 	private boolean nerf=true;
-	private Image img = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/fondo.png");
+	private Image img = new Image("application/Img/fondo.png");
 	private ImageView fondo = new ImageView(img);
 	@Override
 	public void start(Stage primaryStage) {

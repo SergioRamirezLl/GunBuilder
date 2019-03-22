@@ -6,8 +6,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
 public class Enemigo {
-	private Image imageIzq = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/enemyIzq.png");
-	private Image imageDer = new Image("file:///C:/Users/Usuario/eclipse-workspace/GunBuilder/Img/enemyDer.png");
+	private Image imageIzq = new Image("application/Img/enemyIzq.png");
+	private Image imageDer = new Image("application/Img/enemyDer.png");
 	private ImageView per = new ImageView(imageDer);
 	private double xIni, yIni;
 	private int vidas;
