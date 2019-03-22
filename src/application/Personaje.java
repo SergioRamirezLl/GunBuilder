@@ -17,7 +17,7 @@ import javafx.util.Duration;
 public class Personaje {
 
 	Image imageIzq = new Image("application/Img/GunMan.png");
-	Image imageDer = new Image("application/Img/GunManDer.png");
+	Image imageDer = new Image("application/Img/GunManDerF.png");
 	ImageView per = new ImageView(imageDer);
 	private double xIni, yIni,xFin,yFin;
 	private Button rightMove = new Button("[L]");
