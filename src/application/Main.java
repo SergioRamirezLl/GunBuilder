@@ -38,7 +38,7 @@ public class Main extends Application {
 			root.setLeft(gunMan.setHBox());
 			gunMan.setVelPer(1.5);
 			gunMan.setPowJump(100);
-			gunMan.setTimeJump(500);
+			gunMan.setTimeJump(300);
 			
 			Disparo fire = new Disparo();
 			root.setBottom(fire.bot());

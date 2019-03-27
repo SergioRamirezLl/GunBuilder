@@ -87,7 +87,7 @@ public class Personaje {
 			timeline.setCycleCount(1);
 			timeline.setOnFinished(evt2 ->{
 				KeyValue val = new KeyValue(per.layoutYProperty(), yIni);
-				KeyFrame oneFrame = new KeyFrame(Duration.millis(timeJump), val);
+				KeyFrame oneFrame = new KeyFrame(Duration.millis(timeJump+200), val);
 				Timeline time = new Timeline(oneFrame);
 				time.setCycleCount(1);
 				time.play();
